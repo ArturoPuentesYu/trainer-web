@@ -1,16 +1,22 @@
 ---
-
+import '../styles/global.css';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boxing Trainer</title>
+  </head>
+  <body class="bg-negro text-blanco min-h-screen flex items-center justify-center">
+    <main class="text-center p-8">
+      <h1 class="text-4xl font-bold text-rojo mb-4">¡Bienvenido al entrenamiento!</h1>
+      <p class="text-grisclaro text-lg">Tu viaje comienza aquí con colores personalizados 🎨</p>
+      <div class="mt-6">
+        <button class="bg-rojo text-blanco px-4 py-2 rounded hover:bg-rojo/80">
+          Empezar ahora
+        </button>
+      </div>
+    </main>
+  </body>
 </html>
