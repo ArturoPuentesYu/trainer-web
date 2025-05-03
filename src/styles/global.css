@@ -1,2 +1,7 @@
 @config "../../tailwind.config.js";
-@import "tailwindcss";
+@import 'tailwindcss';
+
+html {
+  @apply font-sans;
+  scroll-behavior: smooth;
+}

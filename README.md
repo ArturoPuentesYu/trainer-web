@@ -1,47 +1,156 @@
-# Astro Starter Kit: Minimal
+# Boxing Trainer Web (Astro + TypeScript + Tailwind CSS)
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+Bienvenido al proyecto **Boxing Trainer Web**, una página estática optimizada y accesible, construida con [Astro](https://astro.build), TypeScript y [Tailwind CSS v4](https://tailwindcss.com). Este README describe cómo instalar, desarrollar, probar y desplegar la aplicación, así como la estructura de carpetas y las herramientas de linting/formatting y control de calidad configuradas.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Tecnologías y Herramientas
 
-## 🚀 Project Structure
+- **Framework**: Astro (v5.2+)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS v4 (integrado via `@tailwindcss/vite`)
+- **Linting**: ESLint (flat config v9+) con reglas personalizadas y orden de imports
+- **Formateo**: Prettier
+- **Git Hooks**: Husky & lint-staged para pre-commits (lint, format, build)
+- **Gestor de Paquetes**: pnpm (recomendado), compatible con npm/yarn
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
+## 🔧 Prerrequisitos
+
+- Node.js (v18+) o superior
+- pnpm (opcional, o npm/yarn)
+
+---
+
+## 📥 Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/ArturoPuentesYu/trainer-web.git
+   cd trainer-web
+   ```
+
+2. Instala dependencias:
+
+   ```bash
+   pnpm install
+   ```
+
+   o
+
+   ```bash
+   pnpm install
+   ```
+
+---
+
+## 🛠️ Scripts Disponibles
+
+En `package.json` encontrarás:
+
+| Comando            | Descripción                                    |
+| ------------------ | ---------------------------------------------- |
+| `pnpm dev`         | Levanta servidor de desarrollo (localhost)     |
+| `pnpm build`       | Genera salida estática en `/dist/`             |
+| `pnpm preview`     | Previsualiza el build en local                 |
+| `pnpm lint`        | Ejecuta ESLint sobre `.js`, `.ts` y `.astro`   |
+| `pnpm lint:fix`    | Aplica correcciones automáticas de ESLint      |
+| `pnpm format`      | Formatea con Prettier                          |
+| `pnpm prepare`     | Instala Husky → ganchos de Git                 |
+| `pnpm lint-staged` | Corre linters/formateadores en archivos staged |
+
+---
+
+## 📁 Estructura de Carpetas
+
+```plaintext
+trainer-web/
+├── public/             # Activos estáticos (favicon, robots.txt, imágenes)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/     # Componentes UI reutilizables
+│   ├── layouts/        # Plantillas de página
+│   ├── pages/          # Páginas Astro (file-based routing)
+│   ├── styles/         # CSS global (`global.css`) con `@import "tailwindcss"`
+│   ├── scripts/        # Código TS/JS no UI (utilidades)
+│   ├── content/        # Markdown o data para blog/testimonios
+│   ├── lib/            # Helpers y wrappers de API
+│   └── types/          # Tipos globales TS
+├── astro.config.mjs    # Configuración Astro + plugin TailwindCSS
+├── tailwind.config.js  # Configuración de Tailwind CSS (colores, darkMode)
+├── postcss.config.mjs  # PostCSS para Tailwind
+├── tsconfig.json       # Configuración TypeScript
+├── eslint.config.cjs   # ESLint (flat config) + plugins TS, import, Astro
+├── .prettierrc         # Reglas de Prettier
+├── .gitignore          # Ignorados de Git
+└── README.md           # Documentación del proyecto
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## ✅ Linting y Formateo
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. **ESLint**: configuración en `eslint.config.cjs` con:
 
-## 🧞 Commands
+   - Parser TS (`@typescript-eslint/parser`)
+   - Plugins: `import`, `@typescript-eslint`, `astro`
+   - Reglas suaves de estilo y orden de imports (`import/order`)
 
-All commands are run from the root of the project, from a terminal:
+2. **Prettier**: reglas en `.prettierrc` (sin punto y coma, comillas simples, etc.)
+3. **Git Hooks**:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+   - `pnpm prepare` para instalar ganchos Husky
+   - Hook `pre-commit`: ejecuta `lint-staged` y luego `pnpm build`
+   - Configuración de `lint-staged` en `package.json` para solo archivos staged
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🌐 Desarrollo
+
+Levanta el servidor de desarrollo y ve tu página en:
+
+```bash
+pnpm dev
+# http://localhost:4321
+```
+
+Edita archivos en `src/`. Los cambios se reflejan al instante.
+
+---
+
+## 📦 Build y Previsualización
+
+1. Genera la versión de producción:
+
+   ```bash
+   pnpm build
+   ```
+
+2. Previsualiza el resultado:
+
+   ```bash
+   pnpm preview
+   # por defecto en http://localhost:4321
+   ```
+
+---
+
+## 🤝 Contribuciones
+
+1. Forkea el repositorio
+2. Crea una rama para tu feature o bugfix
+3. Asegúrate que `pnpm lint` y `pnpm format` pasan sin errores
+4. Envía un Pull Request describiendo tus cambios
+
+---
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+
+---
+
+## ✉️ Contacto
+
+Para dudas o sugerencias, contacta a Arturo Puentes en **[arturo.puentes.yu@gmail.com](mailto:arturo.puentes.yu@gmail.com)** o abre un issue en GitHub.

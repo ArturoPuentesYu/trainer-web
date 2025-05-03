@@ -1,0 +1,42 @@
+---
+import CardService from '../ui/cards.astro'
+
+const highlights = [
+  {
+    title: 'Técnica & aprendizaje',
+    description:
+      'Aprenderás boxeo desde la base, con explicaciones claras, ejercicios técnicos y aplicación real en guanteleta, saco o fideos.',
+  },
+  {
+    title: 'Trabajo físico',
+    description:
+      'Fortalecemos cuerpo y mente con sesiones activas de 30-45 min: HIIT, fuerza, resistencia y coordinación adaptadas a tu nivel.',
+  },
+  {
+    title: 'Superación personal',
+    description:
+      'Más que boxeo: liberarás estrés, ganarás confianza, mejorarás tu enfoque y te sentirás capaz de enfrentar cualquier reto.',
+  },
+]
+---
+
+<section class="bg-negro text-white py-20 px-6 md:px-24">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2
+      class="text-rojo text-3xl md:text-4xl font-bold uppercase font-heading mb-12"
+    >
+      ¿Qué incluye una sesión de entrenamiento?
+    </h2>
+
+    <div class="grid gap-8 grid-cols-1 md:grid-cols-3 text-left">
+      {highlights.map(item => <CardService {...item} />)}
+    </div>
+
+    <a
+      href="#contacto"
+      class="mt-12 inline-block bg-rojo text-blanco py-3 px-6 rounded-lg text-lg font-semibold hover:bg-grisoscuro transition"
+    >
+      Reserva tu sesión ahora
+    </a>
+  </div>
+</section>

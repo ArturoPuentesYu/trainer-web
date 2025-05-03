@@ -1,0 +1,41 @@
+---
+import HeaderDesktop from '/public/images/header_desktop.jpg'
+import HeaderMobile from '/public/images/header_mobile.jpg'
+---
+
+<div class="relative bg-negro text-blanco sm:h-[90vh] h-[50vh] overflow-hidden">
+  <!-- Imagen de fondo MOBILE -->
+  <img
+    src={HeaderMobile.src}
+    alt="Boxeador móvil"
+    class="absolute inset-0 w-full h-full object-cover object-top z-0 block md:hidden"
+  />
+
+  <!-- Imagen de fondo DESKTOP -->
+  <img
+    src={HeaderDesktop.src}
+    alt="Boxeador escritorio"
+    class="absolute inset-0 w-full h-full object-cover object-right z-0 hidden md:block"
+  />
+
+  <!-- Contenido -->
+  <div
+    class="relative z-20 h-full flex items-center justify-center md:justify-start px-6 md:px-32"
+  >
+    <div class="max-w-2xl text-left flex flex-col gap-6">
+      <h1
+        class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl
+          font-extrabold tracking-wide uppercase font-heading leading-tight rounded-2xl sm:bg-transparent"
+      >
+        Entrena<br />como un campeón
+      </h1>
+      <a
+        href="#contacto"
+        class="inline-block bg-rojo text-blanco py-3 px-6 rounded-lg
+          text-base sm:text-lg font-semibold hover:bg-grisoscuro transition w-fit"
+      >
+        Reserva tu sesión
+      </a>
+    </div>
+  </div>
+</div>

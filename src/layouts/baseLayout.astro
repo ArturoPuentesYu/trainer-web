@@ -1,0 +1,102 @@
+---
+import { router } from '../lib/constants/router'
+import '../styles/global.css'
+---
+
+<html lang="es" class="antialiased bg-blanco text-negro">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title -->
+    <title>{Astro.props.title}</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content={Astro.props.title} />
+    {
+      Astro.props.description && (
+        <meta name="description" content={Astro.props.description} />
+      )
+    }
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.props.url || Astro.site} />
+    <meta property="og:title" content={Astro.props.title} />
+    {
+      Astro.props.description && (
+        <meta property="og:description" content={Astro.props.description} />
+      )
+    }
+    {
+      Astro.props.image && (
+        <meta property="og:image" content={Astro.props.image} />
+      )
+    }
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.props.url || Astro.site} />
+    <meta property="twitter:title" content={Astro.props.title} />
+    {
+      Astro.props.description && (
+        <meta
+          property="twitter:description"
+          content={Astro.props.description}
+        />
+      )
+    }
+    {
+      Astro.props.image && (
+        <meta property="twitter:image" content={Astro.props.image} />
+      )
+    }
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Additional head tags -->
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Navegación -->
+    <header class="bg-rojo text-blanco shadow-md">
+      <nav class="container mx-auto p-4 flex justify-between items-center">
+        <a href={router.home} class="text-xl font-bold">Boxing Trainer</a>
+        <ul class="flex space-x-4">
+          <li><a href={router.home} class="hover:text-negro">Inicio</a></li>
+          <li><a href={router.about} class="hover:text-negro">Sobre mí</a></li>
+          <li>
+            <a href={router.services} class="hover:text-negro">Servicios</a>
+          </li>
+          <li>
+            <a href={router.contact} class="hover:text-negro">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="flex-grow w-full bg-negro text-blanco">
+      <slot />
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-rojo text-grisclaro py-4">
+      <div class="container mx-auto text-center">
+        <p>
+          &copy; {new Date().getFullYear()} Boxing Trainer. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

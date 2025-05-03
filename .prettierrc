@@ -4,5 +4,12 @@
   "trailingComma": "es5",
   "tabWidth": 2,
   "endOfLine": "auto",
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "plugins": ["prettier-plugin-astro"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": { "parser": "astro" }
+    }
+  ]
 }

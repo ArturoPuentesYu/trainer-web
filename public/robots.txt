@@ -1,0 +1,14 @@
+# robots.txt para Boxing Trainer Web
+
+# 1) Reglas generales para todos los bots
+User-agent: *
+Disallow: /admin/          
+Disallow: /scripts/        
+Allow: /
+
+# 2) Reglas específicas (ejemplo para Googlebot)
+User-agent: Googlebot
+Disallow:
+
+# 3) Indicar la ruta al sitemap
+Sitemap: https://tu-dominio.com/sitemap.xml

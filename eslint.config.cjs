@@ -6,21 +6,17 @@ const astroParser = require('astro-eslint-parser')
 const astroPlugin = require('eslint-plugin-astro')
 
 module.exports = [
-  // — Ignorar carpetas de build/cache
-  {
-    ignores: ['node_modules/**', 'dist/**', 'public/**', '.cache/**'],
-  },
+  { ignores: ['node_modules/**', 'dist/**', 'public/**', '.cache/**'] },
 
-  // — Reglas generales para .js, .ts y .astro
   {
     files: ['src/**/*.{js,ts,astro}'],
     languageOptions: {
-      parser: tsParser, // cargamos el parser TS como objeto
+      parser: tsParser,
       parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
         project: './tsconfig.json',
         extraFileExtensions: ['.astro'],
+        ecmaVersion: 'latest',
+        sourceType: 'module',
       },
     },
     plugins: {
@@ -30,10 +26,9 @@ module.exports = [
     },
     rules: {
       // Formato ligero
-      semi: ['warn', 'always'],
       quotes: ['warn', 'single', { avoidEscape: true }],
       indent: ['warn', 2, { SwitchCase: 1 }],
-      'max-len': ['warn', { code: 100, ignoreComments: true }],
+      'max-len': ['warn', { code: 130, ignoreComments: true }],
       'padding-line-between-statements': [
         'warn',
         { blankLine: 'always', prev: '*', next: 'return' },
@@ -54,41 +49,32 @@ module.exports = [
         'warn',
         { argsIgnorePattern: '^_' },
       ],
-
-      // Orden de imports
-      'import/order': [
-        'error',
-        {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            ['parent', 'sibling', 'index'],
-          ],
-          'newlines-between': 'always',
-          alphabetize: { order: 'asc', caseInsensitive: true },
-        },
-      ],
     },
     settings: {
       'import/parsers': {
         '@typescript-eslint/parser': ['.ts', '.astro'],
       },
       'import/resolver': {
-        typescript: {},
+        typescript: {
+          project: './tsconfig.json',
+          alwaysTryTypes: true,
+        },
+        node: {
+          extensions: ['.js', '.ts', '.astro'],
+        },
       },
     },
   },
 
-  // — Ajustes específicos para .astro
   {
     files: ['src/**/*.astro'],
     languageOptions: {
-      parser: astroParser, // cargamos el parser de Astro
+      parser: astroParser,
       parserOptions: {
-        parser: tsParser, // dentro de Astro usamos TS parser
+        parser: tsParser,
         extraFileExtensions: ['.astro'],
       },
     },
+    rules: {},
   },
 ]
