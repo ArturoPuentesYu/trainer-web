@@ -27,8 +27,19 @@ module.exports = [
     rules: {
       // Formato ligero
       quotes: ['warn', 'single', { avoidEscape: true }],
-      indent: ['warn', 2, { SwitchCase: 1 }],
-      'max-len': ['warn', { code: 130, ignoreComments: true }],
+      'max-len': [
+        'warn',
+        {
+          code: 130,
+          ignoreUrls: true,
+          ignoreStrings: true,
+          ignoreTemplateLiterals: true,
+          ignoreComments: false,
+          ignoreRegExpLiterals: true,
+          ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
+        },
+      ],
+
       'padding-line-between-statements': [
         'warn',
         { blankLine: 'always', prev: '*', next: 'return' },
