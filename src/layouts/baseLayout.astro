@@ -1,5 +1,5 @@
 ---
-import { router } from '../lib/constants/router'
+import NavBar from '../components/ui/navBar.astro'
 import '../styles/global.css'
 ---
 
@@ -69,21 +69,7 @@ import '../styles/global.css'
   </head>
   <body class="min-h-screen flex flex-col">
     <!-- Navegación -->
-    <header class="bg-rojo text-blanco shadow-md">
-      <nav class="container mx-auto p-4 flex justify-between items-center">
-        <a href={router.home} class="text-xl font-bold">Boxing Trainer</a>
-        <ul class="flex space-x-4">
-          <li><a href={router.home} class="hover:text-negro">Inicio</a></li>
-          <li><a href={router.about} class="hover:text-negro">Sobre mí</a></li>
-          <li>
-            <a href={router.services} class="hover:text-negro">Servicios</a>
-          </li>
-          <li>
-            <a href={router.contact} class="hover:text-negro">Contacto</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <NavBar />
 
     <!-- Contenido principal -->
     <main class="flex-grow w-full bg-negro text-blanco">
