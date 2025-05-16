@@ -1,10 +1,12 @@
 ---
-const { title, description } = Astro.props
+import { Image } from 'astro:assets'
+const { title, description, image } = Astro.props
 ---
 
 <div
   class="flex flex-col items-start text-left bg-grisoscuro p-6 rounded-lg shadow-md hover:scale-[1.02] transition h-full"
 >
+  {image && <Image src={image} alt={title} class="mb-4 rounded" />}
   <h3
     class="text-rojo text-xl font-medium uppercase font-heading mb-2 tracking-wide"
   >
