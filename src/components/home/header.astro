@@ -1,19 +1,20 @@
 ---
+import { Image } from 'astro:assets'
 import HeaderDesktop from '/public/images/header_desktop.jpg'
 import HeaderMobile from '/public/images/header_mobile.jpg'
 ---
 
 <div class="relative bg-negro text-blanco sm:h-[90vh] h-[50vh] overflow-hidden">
   <!-- Imagen de fondo MOBILE -->
-  <img
-    src={HeaderMobile.src}
+  <Image
+    src={HeaderMobile}
     alt="Boxeador móvil"
     class="absolute inset-0 w-full h-full object-cover object-top z-0 block md:hidden"
   />
 
   <!-- Imagen de fondo DESKTOP -->
-  <img
-    src={HeaderDesktop.src}
+  <Image
+    src={HeaderDesktop}
     alt="Boxeador escritorio"
     class="absolute inset-0 w-full h-full object-cover object-right z-0 hidden md:block"
   />
