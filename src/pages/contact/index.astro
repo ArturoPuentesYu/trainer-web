@@ -1,5 +1,46 @@
 ---
+import type { APIRoute } from 'astro'
 import BaseLayout from '../../layouts/baseLayout.astro'
+
+export const prerender = false
+
+export const POST: APIRoute = async ({ request }) => {
+  const body = await request.formData()
+
+  const name = body.get('name')
+  const email = body.get('email')
+  const message = body.get('message')
+
+  const contactMail = import.meta.env.CONTACT_MAIL
+
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${import.meta.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Contacto Web <onboarding@resend.dev>',
+        to: [contactMail],
+        subject: 'Nuevo mensaje desde la web',
+        html: `
+          <p><strong>Nombre:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Mensaje:</strong><br/>${message}</p>
+        `,
+      }),
+    })
+
+    if (!res.ok) throw new Error('Error al enviar email')
+
+    return new Response(JSON.stringify({ success: true }), { status: 200 })
+  } catch (err) {
+    return new Response(JSON.stringify({ success: false, error: err }), {
+      status: 500,
+    })
+  }
+}
 ---
 
 <BaseLayout
@@ -8,11 +49,14 @@ import BaseLayout from '../../layouts/baseLayout.astro'
 >
   <section class="bg-negro text-blanco py-16 px-6 md:px-24">
     <div class="max-w-3xl mx-auto flex flex-col gap-8">
-      <h2 class="text-rojo text-3xl md:text-4xl font-bold uppercase font-heading text-center">
+      <h2
+        class="text-rojo text-3xl md:text-4xl font-bold uppercase font-heading text-center"
+      >
         Contáctame
       </h2>
       <p class="text-grisclaro text-center font-sans">
-        ¿Listo para empezar a entrenar? Envíame un mensaje y me pondré en contacto contigo lo antes posible.
+        ¿Listo para empezar a entrenar? Envíame un mensaje y me pondré en
+        contacto contigo lo antes posible.
       </p>
       <form class="grid gap-6">
         <input
@@ -35,7 +79,8 @@ import BaseLayout from '../../layouts/baseLayout.astro'
           placeholder="Mensaje"
           class="p-3 rounded bg-grisoscuro text-blanco focus:outline-none"
           required
-        />
+        >
+        </textarea>
         <button
           type="submit"
           class="bg-rojo text-blanco py-3 px-6 rounded-lg font-semibold hover:bg-grisoscuro transition w-fit"
@@ -43,14 +88,6 @@ import BaseLayout from '../../layouts/baseLayout.astro'
           Enviar
         </button>
       </form>
-      <div class="text-grisclaro text-center font-sans">
-        <p>
-          También puedes escribir a
-          <a href="mailto:arturo.puentes.yu@gmail.com" class="text-rojo hover:underline">
-            arturo.puentes.yu@gmail.com
-          </a>
-        </p>
-      </div>
     </div>
   </section>
 </BaseLayout>
