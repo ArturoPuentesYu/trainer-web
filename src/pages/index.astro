@@ -3,9 +3,14 @@ import BaseLayout from '../layouts/baseLayout.astro'
 import Header from '../components/home/header.astro'
 import About from '../components/home/about.astro'
 import TrainingPreview from '../components/home/trainingPreview.astro'
+import LocalBusiness from '../components/seo/localBusiness.astro'
 ---
 
-<BaseLayout title="Boxing Trainer - Jose Aguilar - Inicio" description="...">
+<BaseLayout
+  title="Entrenador de boxeo en Ciudad de Panamá | Jose Aguilar"
+  description="Clases de boxeo personalizadas en Ciudad de Panamá para mejorar tu técnica y condición física"
+>
+  <LocalBusiness slot="head" />
   <Header />
   <About />
   <TrainingPreview />

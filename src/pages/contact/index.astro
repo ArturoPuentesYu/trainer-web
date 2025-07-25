@@ -44,15 +44,15 @@ export const POST: APIRoute = async ({ request }) => {
 ---
 
 <BaseLayout
-  title="Boxing Trainer - Jose Aguilar - Contacto"
-  description="Ponte en contacto y agenda tu próxima sesión"
+  title="Contacto | Entrenador de boxeo en Ciudad de Panamá"
+  description="Reserva clases de boxeo en Ciudad de Panamá o solicita más información"
 >
   <section class="bg-negro text-blanco py-16 px-6 md:px-24">
     <div class="max-w-3xl mx-auto flex flex-col gap-8">
       <h2
         class="text-rojo text-3xl md:text-4xl font-bold uppercase font-heading text-center"
       >
-        Contáctame
+        Contáctame en Ciudad de Panamá
       </h2>
       <p class="text-grisclaro text-center font-sans">
         ¿Listo para empezar a entrenar? Envíame un mensaje y me pondré en
@@ -88,6 +88,25 @@ export const POST: APIRoute = async ({ request }) => {
           Enviar
         </button>
       </form>
+      <div class="text-grisclaro text-center font-sans">
+        <p>
+          También puedes escribir a
+          <a
+            href="mailto:arturo.puentes.yu@gmail.com"
+            class="text-rojo hover:underline"
+          >
+            arturo.puentes.yu@gmail.com
+          </a>
+        </p>
+        <p>Dirección: Calle 50, Ciudad de Panamá, Panamá</p>
+        <p>
+          Teléfono:
+          <a href="tel:+50760000000" class="text-rojo hover:underline">
+            +507 6000-0000
+          </a>
+        </p>
+        <p>Horario: Lunes a Viernes 6:00-20:00</p>
+      </div>
     </div>
   </section>
 </BaseLayout>
