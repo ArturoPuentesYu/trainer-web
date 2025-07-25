@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@astrojs/vercel": "^8.2.3",
     "astro": "^5.7.10",
     "astro-navbar": "^2.3.9",
     "sharp": "^0.34.1"
