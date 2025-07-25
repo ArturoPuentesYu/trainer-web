@@ -154,3 +154,9 @@ Este proyecto está licenciado bajo MIT. Consulta el archivo [LICENSE](./LICENSE
 ## ✉️ Contacto
 
 Para dudas o sugerencias, contacta a Arturo Puentes en **[arturo.puentes.yu@gmail.com](mailto:arturo.puentes.yu@gmail.com)** o abre un issue en GitHub.
+
+---
+
+## 📍 Google Business Profile
+
+Para potenciar la visibilidad local, crea y optimiza una ficha en **Google Business Profile** con la misma dirección y URL que utilizas en este sitio. Completa los datos de contacto, horario y ubicación en Ciudad de Panamá para que los usuarios puedan encontrarte fácilmente en las búsquedas locales.

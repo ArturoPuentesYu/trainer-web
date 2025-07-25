@@ -11,4 +11,4 @@ User-agent: Googlebot
 Disallow:
 
 # 3) Indicar la ruta al sitemap
-Sitemap: https://tu-dominio.com/sitemap.xml
+Sitemap: /sitemap.xml
