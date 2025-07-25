@@ -1,0 +1,54 @@
+---
+const sections = [
+  {
+    title: 'Tipo de entrenamientos',
+    text: 'Las clases son para jóvenes y adultos a partir de las 12 años de edad en adelante, ya que menores debajo de esa edad todavía no están preparados psicológicamente para el esfuerzo y disciplina que requiere trabajar este deporte (nótese que esta opinión es muy subjetiva a la de otros entrenadores que podrían diferir totalmente, de ninguna forma afirmo o confirmo que este contexto sea aplicado para todos los menores de 12 años). Las clases pueden ser grupales o individuales, centradas principalmente en el trabajo físico, cardiovascular y boxístico del deporte.',
+  },
+  {
+    title: 'Métodos y técnicas',
+    text: 'El entrenamiento saca su base de años de aprendizaje en diversos deportes de contacto en los que cada uno se trabaja de diferentes maneras dependiendo del objetivo que se esté buscando. El principal enfoque en mis clases serían el trabajo de técnica a nivel boxístico y de ejercicios aplicados para lograr la mejor forma posible y prevención de lesiones, así como también se trabajan ejercicios con funcionalidad en torno al boxeo como ejercicios de fuerza, resistencia, explosividad, estabilidad, control y coordinación.',
+  },
+  {
+    title: 'Equipamiento necesario',
+    text: 'El alumno es requerido obligatoriamente a tener guantes de boxeo, vendas de boxeo (preferiblemente de 160 cm), cuerda de saltar y mancuernas de 1 libra (máximo 2 libras). En caso de no poseer guantes yo puedo prestar mis guantes del público por un tiempo limitado.',
+  },
+  {
+    title: 'Ejemplo de una sesión de entrenamiento',
+    text: 'Se inicia principalmente haciendo ejercicios de lubricación articular; de ahí salimos a hacer calentamiento de 6 a 9 minutos dependiendo de la disponibilidad de tiempo del cliente. Seguido se empieza a dar una escuela de boxeo donde se explican las bases del boxeo y las técnicas nuevas a aprender. Si en la clase del día se harán ejercicios de fuerza, resistencia o explosividad, se iniciaría primero con ellos después del calentamiento para luego continuar con la escuela de boxeo. Luego se trabaja guanteleta, saco o fideos (todos instrumentos usados en el deporte boxístico) y finalizamos con 6 minutos de abdominales.',
+  },
+  {
+    title: 'Beneficios del boxeo',
+    text: 'Mejor coordinación, más fuerza, más resistencia, mejor desempeño cardiovascular, descarga psicológica, sentimiento de liberación, más concentración, mejor resolución de problemas y mejor energía.',
+  },
+]
+---
+
+<section class="bg-negro text-blanco py-16 px-6 md:px-24">
+  <div class="max-w-6xl mx-auto flex flex-col gap-8">
+    <h2
+      class="text-rojo text-3xl md:text-4xl font-bold uppercase font-heading text-center"
+    >
+      Sistema de Entrenamiento
+    </h2>
+
+    <div class="space-y-8">
+      {
+        sections.map((section, index) => (
+          <>
+            <div class="border-2 border-rojo rounded-lg p-6 flex gap-4 items-start">
+              <div class="flex items-center aspect-square justify-center size-10 md:size-12 rounded-full bg-rojo text-blanco font-heading text-lg md:text-2xl">
+                {index + 1}
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-heading text-rojo mb-2 uppercase">
+                  {section.title}
+                </h3>
+                <p class="text-grisclaro font-sans">{section.text}</p>
+              </div>
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</section>
