@@ -148,7 +148,7 @@ Edita archivos en `src/`. Los cambios se reflejan al instante.
 ## 📄 Licencia
 
 Este proyecto está licenciado bajo MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
-
+No se permite uso comercial sin permiso.
 ---
 
 ## ✉️ Contacto
